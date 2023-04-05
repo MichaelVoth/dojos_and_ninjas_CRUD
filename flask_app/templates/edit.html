@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Ninja</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <body>
+        <div id="wrapper">
+            <div id="container">
+                <div id="header"></div>
+                <div id="content">
+                    <div class="col">
+                        <h1>Edit Ninja</h1>
+                        <form action="/update" method="POST">
+                            <fieldset class="form">
+                                <legend>Edit Ninja</legend>
+                                <div class="table_row">
+                                <label for="dojo_id">Dojo</label>
+                                <input type="hidden" name="id" value="{{ninja.id}}">
+                                <select name="dojo_id" id="dojo_id" required>
+                                    {% for dojo in dojos %}
+                                        {% if dojo.id == ninja.dojo_id %}
+                                            <option value="{{ dojo.id }}" selected>{{ dojo.name }}</option>
+                                        {% else %}
+                                            <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                                </div>
+                                <div class="table_row">
+                                <label for="first_name">First Name:</label>
+                                <input type="text" name="first_name" id="first_name" required value="{{ninja.first_name}}">
+                                </div>
+                                <div class="table_row">
+                                <label for="last_name">Last Name:</label>
+                                <input type="text" name="last_name" id="last_name" required value="{{ninja.last_name}}">
+                                </div>
+                                <div class="table_row">
+                                <label for="age">Age:</label>
+                                <input type="text" name="age" id="age" required value="{{ninja.age}}">
+                                </div>
+                                <br>
+                                <input type="submit" value="Edit">
+                            </fieldset>
+                        </form>
+                        <a href="/dojos">Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    
+    </html>
