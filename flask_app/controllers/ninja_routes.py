@@ -27,3 +27,4 @@ def edit_ninja(id):             #redirects to form with individual info displaye
 def update_ninja():             #Updates ninja info in DB
     Ninja.ninja_update(request.form)
     return redirect(f"/dojos/{request.form['dojo_id']}")
+    
